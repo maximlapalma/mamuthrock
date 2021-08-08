@@ -1,0 +1,36 @@
+@import 'reset';
+@import 'colores';
+
+.contenedor {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.contendorGeneral {
+  display: grid;
+  grid-auto-rows: 60vw;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1 fr));
+}
+
+.card {
+  overflow: hidden;
+  padding: 0;
+  height: auto;
+  width: 100%;
+}
+
+/*EXTENDE*/
+
+%textoDestacado {
+  font-family: $mi-fuente;
+  color: $rosadito-oscuro;
+}
+
+/*mixin*/
+
+@mixin flex ($display, $flexDirection, $justifyCont, $alignItem){
+  display: $display;
+  flex-direction: $flexDirection;
+  justify-content: $justifyCont;
+  align-items: $alignItem;
+}

@@ -1,0 +1,555 @@
+@import "reset";
+@import "media";
+@import "colores";
+
+h1,
+h2 {
+  color: $blanco-gris;
+  font-size: xx-large;
+  @media only screen and (max-width: 600px) {
+    font-size: 7vw;
+  }
+}
+
+/*MENÚ*/
+nav {
+  font-size: 12px;
+  margin: 0 0 1rem;
+  padding: 0 0 0 1em;
+  height: 75px;
+  overflow: hidden;
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    max-height: 150px;
+    position: relative;
+    text-align: center;
+  }
+
+  & li {
+    display: inline-block;
+
+    &:last-child {
+      position: absolute;
+      right: 0;
+      bottom: 75px;
+      background: $rosadito-claro;
+      box-shadow: -0.2rem 0 0.5rem $gris-oscuro;
+      border-radius: 0.3rem;
+      padding: 0 1em;
+    }
+    &:nth-last-child(2) {
+      display: none;
+    }
+  }
+  & a {
+    background-color: $rosadito-claro;
+    display: block;
+    width: auto;
+    padding: 0 1em;
+    color: $gris-oscuro;
+    font-family: $mi-fuente;
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 75px;
+    height: 75px;
+    border-radius: 0.3rem;
+
+    &:hover {
+      background: linear-gradient(to bottom, $marron-oscuro, $marron-verde);
+      color: $blanco-gris;
+    }
+  }
+}
+
+#menu {
+  &:target {
+    height: auto;
+    padding: 0;
+    overflow: visible;
+    box-shadow: 0 0;
+
+    & ul {
+      max-height: 10vh;
+      height: auto;
+      text-align: left;
+    }
+
+    & li {
+      display: block;
+
+      &:last-child {
+        display: none;
+      }
+      &:nth-last-child(2) {
+        background: $blanco-gris;
+        position: absolute;
+        top: 0;
+        right: -2px;
+        margin: 0;
+        & a {
+          background: inherit;
+          color: $gris-oscuro;
+        }
+      }
+    }
+    & a {
+      background: $marron-verde;
+      color: $blanco-gris;
+      display: block;
+      height: 3rem;
+      line-height: 3rem;
+      transition: 0.4s;
+      overflow: visible;
+
+      &:hover {
+        background-color: $blanco-gris;
+        color: $gris-oscuro;
+        text-indent: 2rem;
+      }
+    }
+
+    & ~ * {
+      display: none;
+    }
+  }
+}
+
+/*COSAS EN COMÚN*/
+
+.tituloPrincipal {
+  text-align: center;
+  padding: 1%;
+}
+
+.textoDestacado {
+  @extend %textoDestacado;
+}
+
+.esUnIcono {
+  width: 20px;
+  height: 20px;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+    box-shadow: 15px 15px 20px $marron-oscuro(0, 0, 0, 0.4);
+  }
+}
+
+.redesSociales {
+  @include flex(flex, column, center, center);
+  width: 100%;
+  overflow: hidden;
+  height: fit-content;
+  margin-bottom: 3px;
+
+  img {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    display: inline-block;
+  }
+
+  .redesHijo {
+    @include flex(flex, row, center, center);
+    width: 13vw;
+    margin: 1vw;
+    @media only screen and (max-width: 600px) {
+      @include flex(flex, column, space-around, center);
+    }
+  }
+}
+
+/*MAIN INDEX*/
+
+.presentacionMamuth {
+  background-image: url(/img/backnosotros.jpg);
+  background-size: cover;
+  background-position: top center;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: relative;
+
+  a {
+    display: flex;
+    justify-content: center;
+    &:hover,
+    &:focus,
+    &:active {
+      transform: scale(1.05);
+      transition: 0.2s;
+    }
+  }
+
+  img {
+    width: 80%;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 7px $marron-oscuro);
+    position: absolute;
+  }
+}
+
+/*ESCUCHÁ NUESTRO DISCO*/
+
+.nuestroDisco {
+  background-image: url(/img/image008.png);
+  background-size: cover;
+  background-position: top center;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  @include flex(flex, column, center, center);
+
+
+  .discoOnline {
+    @include flex(flex, row, center, center);
+    gap: 2rem;
+    background: $sombreado;
+    width: 100%;
+  
+    a {
+      @include flex(flex, row, center, center);
+      &:hover,
+      &:focus,
+      &:active {
+        transform: scale(1.05);
+        transition: 0.2s;
+      }
+    }
+  }
+
+  img {
+    width: 20vw;
+  }
+
+  h1 {
+    @include flex(flex, row, center, center);
+    background: $sombreado;
+    color: $blanco-gris;
+    width: 100%;
+
+
+  }
+  p {
+    @include flex(flex, row, center, center);
+    background: $sombreado;
+    color: $blanco-gris;
+    width: 100%;
+
+
+  }
+}
+
+/*MAIN DESCARGAS*/
+
+.spotifySeccion {
+  @include flex(flex, column, center, center);
+  gap: 2vw;
+
+  & audio {
+    width: 25vw;
+    &:hover,
+    &:focus,
+    &:active {
+      transform: scale(1.05);
+    }
+  }
+  details {
+    background: linear-gradient(to bottom, $marron-oscuro, $marron-verde);
+    color: $rosadito-claro;
+    padding: 1vw;
+    border-radius: 5px;
+    border: solid 1px $rosadito-oscuro;
+    font-weight: bold;
+    text-align: center;
+    width: 30vw;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+      transform: scale(1.05);
+      background: $rosadito-oscuro;
+      color: $gris-oscuro;
+      transition: 1s;
+    }
+
+    a {
+      color: $rosadito-claro;
+      &:hover {
+        background-color: $blanco-gris;
+        color: $gris-oscuro;
+        padding: 1vh;
+        border-radius: 5px;
+      }
+    }
+    @media only screen and (max-width: 600px) {
+      width: 70vw;
+      & audio {
+        width: 50vw;
+        &:hover,
+        &:focus,
+        &:active {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  & img {
+    border-radius: 50%;
+    height: 30vh;
+    width: 30wh;
+    &:hover {
+      transform: scale(1.2);
+      transition: 0.5s;
+      box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+/*MAIN NOSOTROS*/
+
+.contenedorNosotres {
+  background-image: url(/img/image010.png);
+  background-size: cover;
+  background-position: top center;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  max-width: 95vw;
+  z-index: -1;
+  position: relative;
+  @include flex(flex, row, center, center);
+
+  .subContenedorNosotres {
+    display: grid;
+    grid-template-areas: "soloyo";
+    justify-items: center;
+    max-width: 90vw;
+    position: absolute;
+    padding: 1vw;
+
+    article {
+      grid-area: soloyo;
+      background: $sombreado;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      padding: 3vw;
+      border-radius: 0.3rem;
+      font-size: 1.35rem;
+      margin: 4vw;
+      color: $blanco-gris;
+      font-weight: normal;
+      z-index: 1;
+      filter: drop-shadow(0 0 5px $marron-oscuro);
+      @media only screen and (max-width: 600px) {
+        font-size: 0.7rem;
+        padding: 4vw;
+        margin: 0;
+      }
+
+      li {
+        font-weight: bolder;
+      }
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    .tituloNosotres,
+    .pieNosotres {
+      background: $sombreado;
+      grid-area: soloyo;
+      width: 100%;
+      padding: 0 1rem;
+      z-index: 1;
+      font-size: 1.5rem;
+      text-align: center;
+      font-variant: small-caps;
+      line-height: 1.5;
+      overflow: hidden;
+      border-radius: 0.3rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    .tituloNosotres {
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
+    .pieNosotres {
+      align-self: flex-end;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+/*MAIN CONTACTO*/
+
+.formularioContacto > * {
+  padding: 2vw;
+}
+
+.formularioContacto {
+  display: flex;
+  justify-content: center;
+  color: $blanco-gris;
+
+  & label {
+    padding: 1vw;
+  }
+
+  & form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3vw;
+    background: linear-gradient(to top, $marron-oscuro, $marron-verde);
+    border: 1px solid $rosadito-claro;
+    border-radius: 5px;
+    .full {
+      grid-column: 1 / 3;
+    }
+    & button,
+    & input,
+    & textarea {
+      width: 100%;
+      &::placeholder {
+        color: $rosadito-oscuro;
+        text-align: center;
+      }
+    }
+    & button {
+      background: $gris-oscuro;
+      color: $blanco-gris;
+      border: 0;
+      padding: 2vw;
+      font-family: "Ropa Sans";
+      font-size: large;
+      &:hover {
+        background: $blanco-gris;
+        color: $gris-oscuro;
+        border: 0;
+        padding: 2vw;
+        font-family: "Ropa Sans";
+        font-size: large;
+      }
+    }
+
+    & select {
+      text-align: center;
+      text-align-last: center;
+      border: 0;
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(to top, $marron-oscuro, $marron-verde);
+      border: 1px solid $rosadito-claro;
+      border-radius: 5px;
+      width: auto;
+    }
+  }
+
+  .form4Hijo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @media only screen and (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .form1,
+  .form2,
+  .form3,
+  .form5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/*GALERÍA*/
+
+.fotos {
+  display: flex;
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .contenedorImagen {
+    position: relative;
+    @include flex(flex, row, center, flex-end);
+    text-align: center;
+
+    .infoImagen {
+      position: absolute;
+
+      /*
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      */
+    }
+  }
+
+  .fotoCenter {
+    width: 250px;
+    height: 150px;
+    padding: 1vw;
+    object-fit: cover;
+    object-position: top;
+    opacity: 0.2;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+      filter: alpha(opacity=100);
+      zoom: 1;
+      transition: 0.8s;
+      transform: scale(1.1);
+      object-position: center;
+    }
+  }
+  .fotoTop {
+    width: 250px;
+    height: 150px;
+    padding: 1vw;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.2;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+      filter: alpha(opacity=100);
+      zoom: 1;
+      transition: 0.8s;
+      transform: scale(1.1);
+      object-position: top;
+    }
+  }
+}
+footer {
+  color: $blanco-gris;
+  font-size: smaller;
+  @include flex(flex, column, center, center);
+}
