@@ -1,0 +1,24 @@
+@import "reset";
+@import "media";
+@import "colores";
+
+
+.logoSvgM {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    fill: transparent;
+    animation: color1 5s forwards;
+    position: relative;
+
+}
+
+
+@keyframes color1 {
+    from {fill: transparent;
+        filter: drop-shadow(0 0 7px $blanco-gris);}
+    to {fill: $blanco-gris;
+        fill-opacity: 0.9;
+        filter: drop-shadow(0 0 5px $rosadito-oscuro);
+    }
+}

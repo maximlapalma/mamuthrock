@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="img/iconwhitem.svg" type="image/svg" sizes="16x16" />
   <link href="css/style.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2e8d0339c.js"></script>
   <meta name="description" content="Mamuth Rock: Federal, Entre Ríos">
   <meta name="title" content="#Mamuth #Rock #AlgoEnMí">
   <meta name="keywords"
@@ -16,19 +17,22 @@
 
 <body>
   <header>
-    <nav id="menu">
-      <ul id="menu-closed">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="galeria.html">Galería</a></li>
-        <li><a href="descargas.html">Descargas</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-
-        <li><a href="#menu-closed">&#215; Close</a></li>
-        <li><a href="#menu">&#9776; Menu</a></li>
-      </ul>
-    </nav>
+    <div class="contenedorMenu" id="contenedorMenu">
+      <p class="btn-abrir-menu" id="btn-abrir-menu">
+        <i class="fas fa-bars"></i>
+      </p>
+      <nav class="elementosNavegacion">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="descargas.html">Descargas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
+
   <main class="contenedor">
     <div class="contenedorGeneral">
       <article class="card">
@@ -50,13 +54,11 @@
             <h2 class="pieNosotres">#Mamuth-Federal, Entre Ríos, Argentina</h2>
           </div>
       </article>
-
     </div>
-    </div>
+  </main>
 
 
-
-
+  <footer>
     <div class="redesSociales">
       <div class="redesHijo">
         <h2>Seguinos</h2>
@@ -70,13 +72,16 @@
             alt="Instagram"></a>
         <a href="x.html"><img class="esUnIcono" src="img/email.svg" alt="Correo Electrónico" /></a>
       </div>
+      <div>
+        <p>Sitio hecho por Maximiliano Lapalma</p>
+      </div>
     </div>
-  </main>
-
-  <footer>
-    <p>El Massi, hecho con autodesprecio, ah re</p>
   </footer>
-
+  <script>
+    const menu = document.getElementById('btn-abrir-menu');
+    menu.addEventListener('click', () => {
+      document.getElementById('contenedorMenu').classList.toggle('active');
+    });
+  </script>
 </body>
-
 </html>

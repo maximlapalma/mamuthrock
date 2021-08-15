@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap");
 body {
   margin: 0;
   box-sizing: border-box;
@@ -49,6 +51,71 @@ body {
   color: #bf9663; }
 
 /*mixin*/
+body {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0%;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Baloo 2", cursive;
+  color: #d9d9d9;
+  font-size: 1rem;
+  line-height: 1.8;
+  background-color: #262626; }
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0%;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Baloo 2", cursive;
+  color: #d9d9d9;
+  font-size: 1rem;
+  line-height: 1.8;
+  background-color: #262626; }
+
+.contenedor {
+  display: block;
+  margin: 0;
+  padding: 0; }
+
+.contendorGeneral {
+  display: grid;
+  grid-auto-rows: 60vw;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1 fr)); }
+
+.card {
+  overflow: hidden;
+  padding: 0;
+  height: auto;
+  width: 100%; }
+
+/*EXTENDE*/
+.textoDestacado {
+  font-family: "Baloo 2", cursive;
+  color: #bf9663; }
+
+/*mixin*/
+.logoSvgM {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  fill: transparent;
+  animation: color1 5s forwards;
+  position: relative; }
+
+@keyframes color1 {
+  from {
+    fill: transparent;
+    filter: drop-shadow(0 0 7px #d9d9d9); }
+  to {
+    fill: #d9d9d9;
+    fill-opacity: 0.9;
+    filter: drop-shadow(0 0 5px #bf9663); } }
+
 h1,
 h2 {
   color: #d9d9d9;
@@ -59,85 +126,71 @@ h2 {
       font-size: 7vw; } }
 
 /*MENÚ*/
-nav {
-  font-size: 12px;
-  margin: 0 0 1rem;
-  padding: 0 0 0 1em;
-  height: 75px;
-  overflow: hidden; }
-  nav ul {
-    margin: 0;
-    padding: 0;
+.contenedorMenu {
+  color: #d9d9d9;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  text-align: center;
+  top: 0;
+  clip-path: circle(70px at 50% 0%); }
+  .contenedorMenu .btn-abrir-menu {
+    cursor: pointer;
+    text-align: center;
+    font-size: x-large; }
+    .contenedorMenu .btn-abrir-menu:hover {
+      animation: rotar 1.5s alternate; }
+  .contenedorMenu .elmentosNavegacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .contenedorMenu ul {
+    padding: 0; }
+  .contenedorMenu li {
     list-style-type: none;
-    max-height: 150px;
-    position: relative;
-    text-align: center; }
-  nav li {
-    display: inline-block; }
-    nav li:last-child {
-      position: absolute;
-      right: 0;
-      bottom: 75px;
-      background: #f2e3b3;
-      box-shadow: -0.2rem 0 0.5rem #262626;
-      border-radius: 0.3rem;
-      padding: 0 1em; }
-    nav li:nth-last-child(2) {
-      display: none; }
-  nav a {
-    background-color: #f2e3b3;
-    display: block;
-    width: auto;
-    padding: 0 1em;
-    color: #262626;
-    font-family: "Baloo 2", cursive;
-    font-weight: normal;
-    text-decoration: none;
-    text-transform: uppercase;
-    white-space: nowrap;
-    line-height: 75px;
-    height: 75px;
-    border-radius: 0.3rem; }
-    nav a:hover {
-      background: linear-gradient(to bottom, #261d03, #594712);
-      color: #d9d9d9; }
+    padding-bottom: 3vw;
+    margin-bottom: 3vw; }
+    .contenedorMenu li a {
+      text-decoration: none;
+      letter-spacing: 2px;
+      padding: 15px 30px;
+      color: #d9d9d9;
+      text-transform: uppercase;
+      transition: 0.2s ease all; }
+      .contenedorMenu li a:hover {
+        background: #262626;
+        font-weight: bolder;
+        filter: drop-shadow(0 0 5px #bf9663);
+        border-radius: 0.3rem; }
 
-#menu:target {
-  height: auto;
-  padding: 0;
-  overflow: visible;
-  box-shadow: 0 0; }
-  #menu:target ul {
-    max-height: 10vh;
-    height: auto;
-    text-align: left; }
-  #menu:target li {
-    display: block; }
-    #menu:target li:last-child {
-      display: none; }
-    #menu:target li:nth-last-child(2) {
-      background: #d9d9d9;
-      position: absolute;
-      top: 0;
-      right: -2px;
-      margin: 0; }
-      #menu:target li:nth-last-child(2) a {
-        background: inherit;
-        color: #262626; }
-  #menu:target a {
-    background: #594712;
-    color: #d9d9d9;
-    display: block;
-    height: 3rem;
-    line-height: 3rem;
-    transition: 0.4s;
-    overflow: visible; }
-    #menu:target a:hover {
-      background-color: #d9d9d9;
-      color: #262626;
-      text-indent: 2rem; }
-  #menu:target ~ * {
-    display: none; }
+.contenedorMenu.active {
+  background: linear-gradient(to bottom, #261d03, #594712);
+  transition: all 0.3s;
+  clip-path: circle(100% at 50% 50%); }
+  .contenedorMenu.active li {
+    animation: desplazamiento 1s ease; }
+
+@keyframes desplazamiento {
+  from {
+    transform: translatey(1000px); }
+  to {
+    transform: translatey(0px); } }
+
+@keyframes rotar {
+  0% {
+    transform: rotate(0deg); }
+  20% {
+    transform: rotate(10deg); }
+  40% {
+    transform: rotate(-15deg); }
+  60% {
+    transform: rotate(15deg); }
+  80% {
+    transform: rotate(-10deg); }
+  100% {
+    transform: rotate(0deg); } }
 
 /*COSAS EN COMÚN*/
 .tituloPrincipal {
@@ -184,21 +237,22 @@ nav {
   background-image: url(/img/backnosotros.jpg);
   background-size: cover;
   background-position: top center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   z-index: -1;
   position: relative; }
-  .presentacionMamuth a {
-    display: flex;
-    justify-content: center; }
-    .presentacionMamuth a:hover, .presentacionMamuth a:focus, .presentacionMamuth a:active {
-      transform: scale(1.05);
-      transition: 0.2s; }
-  .presentacionMamuth img {
-    width: 80%;
-    opacity: 0.7;
-    filter: drop-shadow(0 0 7px #261d03);
-    position: absolute; }
+  .presentacionMamuth .textoCancion {
+    transform: rotate(-25deg);
+    position: absolute;
+    text-align: justify;
+    opacity: 0.1;
+    font-size: 56px;
+    backdrop-filter: grayscale(1);
+    overflow: hidden; }
 
 /*ESCUCHÁ NUESTRO DISCO*/
 .nuestroDisco {
@@ -458,12 +512,7 @@ nav {
     align-items: flex-end;
     text-align: center; }
     .fotos .contenedorImagen .infoImagen {
-      position: absolute;
-      /*
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      */ }
+      position: absolute; }
   .fotos .fotoCenter {
     width: 250px;
     height: 150px;
@@ -494,11 +543,3 @@ nav {
       transition: 0.8s;
       transform: scale(1.1);
       object-position: top; }
-
-footer {
-  color: #d9d9d9;
-  font-size: smaller;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
