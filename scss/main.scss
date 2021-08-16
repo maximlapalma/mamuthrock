@@ -11,6 +11,11 @@ h2 {
   }
 }
 
+header {
+  height: 70px;
+  background: $gradiente-mamuth;
+
+}
 /*MENÚ*/
 .contenedorMenu {
   color: $blanco-gris;
@@ -26,12 +31,14 @@ h2 {
     cursor: pointer;
     text-align: center;
     font-size: x-large;
+    margin-bottom: 25px; /*Esto lo agregué por Bootstrap! */
     &:hover {
       animation: rotar 1.5s alternate;
     }
   }
   .elmentosNavegacion {
     @include flex(flex, column, center, center);
+    
   }
   ul {
     padding: 0;
@@ -452,6 +459,7 @@ h2 {
 }
 
 /*GALERÍA*/
+/* ESTO ES PARA LA GALERÍA QUE VA A QUEDAR
 
 .fotos {
   display: flex;
@@ -508,3 +516,17 @@ h2 {
     }
   }
 }
+*/
+
+.carouselExampleCaptions {
+  width: 90%;
+  .carousel-item {
+    height: 70vw;
+    img {
+      background-size: center;
+    }
+}
+
+} 
+
+
