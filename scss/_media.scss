@@ -1,5 +1,5 @@
-@import 'reset';
-@import 'colores';
+@import "reset";
+@import "colores";
 
 .contenedor {
   display: block;
@@ -26,9 +26,11 @@
   color: $rosadito-oscuro;
 }
 
+
+
 /*mixin*/
 
-@mixin flex ($display, $flexDirection, $justifyCont, $alignItem){
+@mixin flex($display, $flexDirection, $justifyCont, $alignItem) {
   display: $display;
   flex-direction: $flexDirection;
   justify-content: $justifyCont;

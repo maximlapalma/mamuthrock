@@ -2,23 +2,75 @@
 @import "media";
 @import "colores";
 
-
 .logoSvgM {
-    width: 80%;
-    display: block;
-    margin: 0 auto;
-    fill: transparent;
-    animation: color1 5s forwards;
-    position: relative;
-
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  fill: transparent;
+  animation-delay: 150ms;
+  animation: color1 5s forwards;
+  position: relative;
 }
 
-
 @keyframes color1 {
-    from {fill: transparent;
-        filter: drop-shadow(0 0 7px $blanco-gris);}
-    to {fill: $blanco-gris;
-        fill-opacity: 0.9;
-        filter: drop-shadow(0 0 5px $rosadito-oscuro);
-    }
+  from {
+    fill: transparent;
+    filter: drop-shadow(0 0 7px $blanco-gris);
+  }
+  to {
+    fill: $blanco-gris;
+    fill-opacity: 0.9;
+    filter: drop-shadow(0 0 5px $rosadito-oscuro);
+  }
+}
+
+#youtube {
+  fill: $blanco-gris;
+  &:hover,
+  &:focus,
+  &:active {
+    fill: $marron-verde;
+    filter: drop-shadow(0 0 15px $marron-oscuro);
+    transition: 0.5s;
+  }
+}
+#mail {
+  fill: $blanco-gris;
+  &:hover,
+  &:focus,
+  &:active {
+    fill: $marron-verde;
+    filter: drop-shadow(0 0 15px $marron-oscuro);
+    transition: 0.5s;
+  }
+}
+#instagram {
+  fill: $blanco-gris;
+  &:hover,
+  &:focus,
+  &:active {
+    fill: $marron-verde;
+    filter: drop-shadow(0 0 15px $marron-oscuro);
+    transition: 0.5s;
+  }
+}
+#spotify {
+  fill: $blanco-gris;
+  &:hover,
+  &:focus,
+  &:active {
+    fill: $marron-verde;
+    filter: drop-shadow(0 0 15px $marron-oscuro);
+    transition: 0.5s;
+  }
+}
+#mamuth {
+  fill: $blanco-gris;
+  &:hover,
+  &:focus,
+  &:active {
+    fill: $marron-verde;
+    filter: drop-shadow(0 0 15px $marron-oscuro);
+    transition: 0.5s;
+  }
 }

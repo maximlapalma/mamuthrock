@@ -6,98 +6,147 @@ h1,
 h2 {
   color: $blanco-gris;
   font-size: xx-large;
+  animation-duration: 900ms;
+  animation-delay: 200ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: desdeAbajo;
   @media only screen and (max-width: 600px) {
     font-size: 7vw;
   }
 }
 
-header {
-  height: 70px;
-  background: $gradiente-mamuth;
+@keyframes desdeAbajo {
+  0% {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+header {
+  height: 65px;
+  background: $gradiente-mamuth;
 }
 /*MENÚ*/
-.contenedorMenu {
-  color: $blanco-gris;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  text-align: center;
-  top: 0;
-  clip-path: circle(70px at 50% 0%);
 
-  .btn-abrir-menu {
-    cursor: pointer;
-    text-align: center;
-    font-size: x-large;
-    margin-bottom: 25px; /*Esto lo agregué por Bootstrap! */
+.btn-abrir-menu {
+  display: none;
+}
+
+.elementosNavegacion {
+  @include flex(flex, row, center, center);
+  top: 0;
+  width: 100%;
+  li {
+    display: inline-block;
+    margin-right: 2vw;
+  }
+  a {
+    text-decoration: none;
+    color: $blanco-gris;
+    text-transform: uppercase;
     &:hover {
-      animation: rotar 1.5s alternate;
+      background: $gris-oscuro;
+      color: $rosadito-claro;
+      padding: 0.5rem;
+      transition: all 0.4s;
+      box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid $rosadito-claro;
+      border-radius: 5px;
     }
   }
-  .elmentosNavegacion {
-    @include flex(flex, column, center, center);
-    
-  }
-  ul {
-    padding: 0;
-  }
-  li {
-    list-style-type: none;
-    padding-bottom: 3vw;
-    margin-bottom: 3vw;
-    a {
-      text-decoration: none;
-      letter-spacing: 2px;
-      padding: 15px 30px;
-      color: $blanco-gris;
-      text-transform: uppercase;
-      transition: 0.2s ease all;
+}
+
+@media only screen and (max-width: 768px) {
+  .contenedorMenu {
+    display: block;
+    color: $blanco-gris;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    text-align: center;
+    top: 0;
+    clip-path: circle(70px at 50% 0%);
+
+    .btn-abrir-menu {
+      display: block;
+      cursor: pointer;
+      text-align: center;
+      font-size: x-large;
+      margin-bottom: 25px; /*Esto lo agregué por Bootstrap! */
       &:hover {
-        background: $gris-oscuro;
-        font-weight: bolder;
-        filter: drop-shadow(0 0 5px $rosadito-oscuro);
-        border-radius: 0.3rem;
+        animation: rotar 1.5s alternate;
+      }
+    }
+
+    ul {
+      padding: 0;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    li {
+      list-style-type: none;
+      padding-bottom: 3vw;
+      margin-bottom: 3vw;
+      a {
+        text-decoration: none;
+        letter-spacing: 2px;
+        padding: 15px 30px;
+        color: $blanco-gris;
+        text-transform: uppercase;
+        transition: 0.2s ease all;
+        &:hover {
+          background: $gris-oscuro;
+          font-weight: bolder;
+          filter: drop-shadow(0 0 5px $rosadito-oscuro);
+          border-radius: 0.3rem;
+        }
       }
     }
   }
-}
-.contenedorMenu.active {
-  background: $gradiente-mamuth;
-  transition: all 0.3s;
-  clip-path: circle(100% at 50% 50%);
-  li {
-    animation: desplazamiento 1s ease;
+  .contenedorMenu.active {
+    background: $gradiente-mamuth;
+    transition: all 0.3s;
+    clip-path: circle(100% at 50% 50%);
+    li {
+      animation: desplazamiento 1s ease;
+    }
   }
-}
-@keyframes desplazamiento {
-  from {
-    transform: translatey(1000px);
+  @keyframes desplazamiento {
+    from {
+      transform: translatey(1000px);
+    }
+    to {
+      transform: translatey(0px);
+    }
   }
-  to {
-    transform: translatey(0px);
-  }
-}
 
-@keyframes rotar {
-  0% {
-    transform: rotate(0deg);
-  }
-  20% {
-    transform: rotate(10deg);
-  }
-  40% {
-    transform: rotate(-15deg);
-  }
-  60% {
-    transform: rotate(15deg);
-  }
-  80% {
-    transform: rotate(-10deg);
-  }
-  100% {
-    transform: rotate(0deg);
+  @keyframes rotar {
+    0% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(10deg);
+    }
+    40% {
+      transform: rotate(-15deg);
+    }
+    60% {
+      transform: rotate(15deg);
+    }
+    80% {
+      transform: rotate(-10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
 }
 
@@ -110,40 +159,6 @@ header {
 
 .textoDestacado {
   @extend %textoDestacado;
-}
-
-.esUnIcono {
-  width: 20px;
-  height: 20px;
-
-  &:hover {
-    transform: scale(1.2);
-    transition: 0.5s;
-    box-shadow: 15px 15px 20px $marron-oscuro(0, 0, 0, 0.4);
-  }
-}
-
-.redesSociales {
-  @include flex(flex, column, center, center);
-  width: 100%;
-  overflow: hidden;
-  height: fit-content;
-  margin-bottom: 3px;
-
-  img {
-    margin-left: 1vw;
-    margin-right: 1vw;
-    display: inline-block;
-  }
-
-  .redesHijo {
-    @include flex(flex, row, center, center);
-    width: 13vw;
-    margin: 1vw;
-    @media only screen and (max-width: 600px) {
-      @include flex(flex, column, space-around, center);
-    }
-  }
 }
 
 /*MAIN INDEX*/
@@ -289,84 +304,55 @@ header {
 
 /*MAIN NOSOTROS*/
 
-.contenedorNosotres {
-  background-image: url(/img/image010.png);
-  background-size: cover;
-  background-position: top center;
-  width: 100vw;
-  height: 100vh;
-  margin: auto;
-  max-width: 95vw;
-  z-index: -1;
-  position: relative;
+.nosotrosContenedor {
   @include flex(flex, row, center, center);
+  gap: 3rem;
+  margin: 1rem;
 
-  .subContenedorNosotres {
-    display: grid;
-    grid-template-areas: "soloyo";
-    justify-items: center;
-    max-width: 90vw;
-    position: absolute;
-    padding: 1vw;
+  @media only screen and (max-width: 768px) {
+    @include flex(flex, column, center, center);
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+}
+.card-text {
+  text-align: center;
+}
+div.card {
+  width: 70%;
+  padding: 0.2rem;
+  opacity: 0.2;
 
-    article {
-      grid-area: soloyo;
-      background: $sombreado;
-      align-self: stretch;
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-      padding: 3vw;
-      border-radius: 0.3rem;
-      font-size: 1.35rem;
-      margin: 4vw;
-      color: $blanco-gris;
-      font-weight: normal;
-      z-index: 1;
-      filter: drop-shadow(0 0 5px $marron-oscuro);
-      @media only screen and (max-width: 600px) {
-        font-size: 0.7rem;
-        padding: 4vw;
-        margin: 0;
-      }
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+    zoom: 1;
+    transition: 0.8s;
+    transform: scale(1.1);
+  }
 
-      li {
-        font-weight: bolder;
-      }
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+  }
+}
+.card-header {
+  text-align: center;
+  color: $gris-oscuro;
+}
 
-      &:hover {
-        color: white;
-      }
-    }
-
-    .tituloNosotres,
-    .pieNosotres {
-      background: $sombreado;
-      grid-area: soloyo;
-      width: 100%;
-      padding: 0 1rem;
-      z-index: 1;
-      font-size: 1.5rem;
-      text-align: center;
-      font-variant: small-caps;
-      line-height: 1.5;
-      overflow: hidden;
-      border-radius: 0.3rem;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      @media only screen and (max-width: 600px) {
-        display: none;
-      }
-    }
-
-    .tituloNosotres {
-      align-self: flex-start;
-      margin-top: 1rem;
-    }
-    .pieNosotres {
-      align-self: flex-end;
-      margin-bottom: 1rem;
-    }
+.card-body {
+  background-color: $gris-oscuro;
+  color: $blanco-gris;
+  .blockquote {
+    text-align: center;
+  }
+  &:hover {
+    background: $gradiente-mamuth;
+    color: $rosadito-claro;
+    border: 0;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 1rem;
   }
 }
 
@@ -381,11 +367,11 @@ header {
   justify-content: center;
   color: $blanco-gris;
 
-  & label {
+  label {
     padding: 1vw;
   }
 
-  & form {
+  form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 3vw;
@@ -395,33 +381,31 @@ header {
     .full {
       grid-column: 1 / 3;
     }
-    & button,
-    & input,
-    & textarea {
+    button,
+    input,
+    textarea {
       width: 100%;
       &::placeholder {
         color: $rosadito-oscuro;
         text-align: center;
       }
     }
-    & button {
+    button {
       background: $gris-oscuro;
       color: $blanco-gris;
       border: 0;
       padding: 2vw;
-      font-family: "Ropa Sans";
       font-size: large;
       &:hover {
         background: $blanco-gris;
         color: $gris-oscuro;
         border: 0;
         padding: 2vw;
-        font-family: "Ropa Sans";
         font-size: large;
       }
     }
 
-    & select {
+    select {
       text-align: center;
       text-align-last: center;
       border: 0;
@@ -442,6 +426,14 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    input {
+      width: auto;
+    }
+    input:checked + label {
+      transition: 0.8s;
+      transform: scale(1.1);
+      color: $rosadito-oscuro;
+    }
     @media only screen and (max-width: 600px) {
       display: flex;
       flex-direction: column;
@@ -459,7 +451,6 @@ header {
 }
 
 /*GALERÍA*/
-/* ESTO ES PARA LA GALERÍA QUE VA A QUEDAR
 
 .fotos {
   display: flex;
@@ -516,17 +507,46 @@ header {
     }
   }
 }
-*/
 
-.carouselExampleCaptions {
-  width: 90%;
-  .carousel-item {
-    height: 70vw;
-    img {
-      background-size: center;
-    }
+.seguinos {
+  text-align: center;
 }
 
-} 
+.social {
+  @include flex(flex, row, center, center);
+  @media only screen and (max-width: 768px) {
+    @include flex(flex, column, space-around, center);
+  }
 
+  a {
+    text-align: center;
+  
+  }
 
+  svg {
+    width: 75%;
+    animation-name: desdeX;
+    animation-duration: 800ms;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transform-origin: 15.887px 29.88px;
+
+    @keyframes desdeX {
+      0% {
+        opacity: 0;
+        transform: translateX(0.5em);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      width: 50%;
+    }
+  }
+}
+
+.cierre {
+  text-align: center;
+}
