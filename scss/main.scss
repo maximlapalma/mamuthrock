@@ -164,7 +164,7 @@ header {
 /*MAIN INDEX*/
 
 .presentacionMamuth {
-  background-image: url(/img/backnosotros.jpg);
+  background-image: url(/img/lestresmas.jpg);
   background-size: cover;
   background-position: top center;
   display: flex;
@@ -188,8 +188,46 @@ header {
 
 /*ESCUCHÁ NUESTRO DISCO*/
 
+.avisoClip {
+  background-color: rgba(255, 0, 0, 0.494);
+  margin: 0 auto;
+  font-family: $mi-fuente;
+  font-weight: bolder;
+  padding: 2vh;
+  position: fixed;
+  bottom: 1%;
+  right: 1%;
+  z-index: 99999;
+  border-radius: 5px;
+
+  a {
+    text-decoration: none;
+    color: $rosadito-claro;
+
+  }
+
+  &:hover {
+    transition: 0.8s;
+    transform: scale(1.1);
+    background-color: rgba(255, 0, 0, 0.789);
+    bottom: 4%;
+    right: 4%;
+    cursor: pointer;
+    
+  }
+
+  p {
+    text-align: center;
+    &:hover {
+      transform: rotate(-10deg);
+      transition: 0.8s;
+      
+    }
+  }
+}
+
 .nuestroDisco {
-  background-image: url(/img/image008.png);
+  background-image: url(/img/lestresmasdistor.jpg);
   background-size: cover;
   background-position: top center;
   width: 100%;
@@ -520,7 +558,6 @@ div.card {
 
   a {
     text-align: center;
-  
   }
 
   svg {
